@@ -48,9 +48,9 @@ class SecondFragment : Fragment() {
         myToast.show()
 
         val sci: Science_Words = Science_Words(
-            prefixFile = "C:\\Users\\reisb\\AndroidStudioProjects\\MyFirstSpp\\app\\src\\main\\java\\com\\example\\myfirstapp\\prefix.txt",
-            midfixFile = "C:\\Users\\reisb\\AndroidStudioProjects\\MyFirstSpp\\app\\src\\main\\java\\com\\example\\myfirstapp\\midfix.txt",
-            suffixFile = "C:\\Users\\reisb\\AndroidStudioProjects\\MyFirstSpp\\app\\src\\main\\java\\com\\example\\myfirstapp\\suffix.txt"
+            prefixFile = "prefix.txt",
+            midfixFile = "midfix.txt",
+            suffixFile = "suffix.txt"
         )
 
         val sciWords = sci.generate()
