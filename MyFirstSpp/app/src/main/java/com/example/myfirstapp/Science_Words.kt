@@ -1,38 +1,54 @@
+import android.content.res.AssetManager
+import android.content.res.Resources
+import androidx.annotation.RawRes
+import com.example.myfirstapp.R
+import java.io.BufferedReader
 import java.io.File
 import java.util.*
 
 
-class Science_Words constructor(val prefixFile: String, val midfixFile: String, val suffixFile: String) {
-    val science_Words: String = ""
+class Science_Words constructor() {
+
+    val res = Resources.getSystem()
+
+    val prefixList = listOf("Curie",
+        "Oppenheimer",
+        "Sagan",
+        "Feynman",
+        "Einstein",
+        "Boltzmann")
+
+    val midfixList = listOf("Alpha",
+            "Beta",
+            "Gamma",
+            "Excluding",
+            "Vibration",
+            "Square",
+            "Opposite")
+
+    val suffixList = listOf("Law",
+            "Space",
+            "Constant",
+            "Enrichment",
+            "Theory",
+            "Diagram",
+            "Ray")
+
+
+    fun Resources.getRawTextFile(@RawRes id: Int) =
+        openRawResource(id).bufferedReader().use { it.readLines() }
+
 
     fun generate(): String {
-
-        val prefixList = File(prefixFile).useLines { it.toList() }
-        val midfixList = File(midfixFile).useLines { it.toList() }
-        val suffixList = File(suffixFile).useLines { it.toList() }
-
         val randPrefix = prefixList.get(Random().nextInt(prefixList.size))
         val randMidfix = midfixList.get(Random().nextInt(midfixList.size))
         val randSuffix = suffixList.get(Random().nextInt(suffixList.size))
 
-        val hyphen = if ((Random().nextInt(3) + 1) % 3 == 0) "-" + prefixList.get(Random().nextInt(prefixList.size)) else ""
+        val hyphen =
+            if ((Random().nextInt(3) + 1) % 3 == 0) "-" + prefixList.get(Random().nextInt(prefixList.size)) else ""
 
         return "$randPrefix$hyphen $randMidfix $randSuffix"
 
     }
 
-
-}
-
-fun main(args: Array<String>) {
-
-    val sci: Science_Words = Science_Words(
-        prefixFile = "C:\\Users\\reisb\\IdeaProjects\\Assignment6_Map\\Science Words\\prefix.txt",
-        midfixFile = "C:\\Users\\reisb\\IdeaProjects\\Assignment6_Map\\Science Words\\midfix.txt",
-        suffixFile = "C:\\Users\\reisb\\IdeaProjects\\Assignment6_Map\\Science Words\\suffix.txt"
-    )
-
-    val scienceWord = sci.generate()
-
-    println(scienceWord)
 }

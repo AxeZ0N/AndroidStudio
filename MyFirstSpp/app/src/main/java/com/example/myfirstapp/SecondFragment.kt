@@ -47,11 +47,8 @@ class SecondFragment : Fragment() {
         )
         myToast.show()
 
-        val sci: Science_Words = Science_Words(
-            prefixFile = "prefix.txt",
-            midfixFile = "midfix.txt",
-            suffixFile = "suffix.txt"
-        )
+        val sci: Science_Words = Science_Words()
+
 
         val sciWords = sci.generate()
 
