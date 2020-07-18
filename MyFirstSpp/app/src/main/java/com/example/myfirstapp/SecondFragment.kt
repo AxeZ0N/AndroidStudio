@@ -42,11 +42,6 @@ class SecondFragment : Fragment() {
     private fun changeText(view: View) {
         val textFieldView = view.findViewById<TextView>(R.id.textView_random)
 
-        val myToast = Toast.makeText(
-            context, "SciWords before", Toast.LENGTH_SHORT
-        )
-        myToast.show()
-
         val sci: Science_Words = Science_Words()
 
 
